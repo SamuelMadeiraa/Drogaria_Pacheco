@@ -67,3 +67,5 @@ group :test do
 end
 
 gem 'bootstrap', '~> 5.0.2'
+
+gem "tailwindcss-rails", "~> 2.3"
