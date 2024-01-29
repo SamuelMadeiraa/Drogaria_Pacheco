@@ -1,44 +1,7 @@
-*{
-    margin:0;
-    padding:0;
-    border-sizing:border-box;
+#barra{
+    border-radius: 25px;
+  background: white;
+  padding: 20px;
+  width: 200px;
+  height: 10px; 
 }
-
-#menu{
-    display: flex;
-    align-items: center;
-    height: 81px;
-    width:auto;
-    background-color:rgb(228,0,43);
-    color:white;
-}
-
-#menu img {
-    margin-right: 10px; 
-}
-
-#menu p{
-    color:white; 
-}
-
-/* p.round3 
-    border: 2px solid white;
-    border-radius: 12px;
-    padding: 5px; */
-
-    #search-form {
-        text-align: center;
-        margin-top: 20px;
-        border: 2px solid white;
-        border-radius: 12px;
-        padding: 5px;
-    }
-
-    #search-box {
-        padding: 8px;
-        width: 200px;
-    }
-
-    #search-button {
-        padding: 8px;
-    }
