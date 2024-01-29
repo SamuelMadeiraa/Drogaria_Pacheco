@@ -1,7 +1,15 @@
-#barra{
-    border-radius: 25px;
-  background: white;
-  padding: 20px;
-  width: 200px;
-  height: 10px; 
+.circulo{
+    margin:auto;
+    width:60%;
+    padding:3px;
+    padding:10px;
 }
+
+.carrosel{
+    margin:auto;
+    width:60%;
+    padding:3px;
+    padding:10px;
+}
+
+
