@@ -1,39 +1,48 @@
-<!-- app/views/products/_form.html.erb -->
-<%= form_with(model: @product, local: true) do |form| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+<%= form_with(model: @product, local: true, class: "flex items-center justify-center h-screen") do |form| %>
+  <!-- Your existing code -->
 
-      <ul>
-        <% @product.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <div class="w-full max-w-md p-6 bg-white rounded-md shadow-md">
+    <% if @product.errors.any? %>
+      <div id="error_explanation" class="mb-6">
+        <h2 class="text-red-600"><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+        <ul>
+          <% @product.errors.full_messages.each do |message| %>
+            <li class="text-red-600"><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="mb-4 flex">
+      <div class="w-1/2 pr-4">
+        <%= form.label :Nome, class: 'block text-gray-700 text-sm font-bold mb-2' %>
+        <%= form.text_field :Nome, class: 'form-input w-full' %>
+      </div>
+
+      <div class="w-1/2">
+        <%= form.label :Descrição, class: 'block text-gray-700 text-sm font-bold mb-2' %>
+        <%= form.text_field :description, class: 'form-input w-full' %>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+    <div class="mb-4">
+      <%= form.label :preço, class: 'block text-gray-700 text-sm font-bold mb-2' %>
+      <%= form.text_field :price, class: 'form-input' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+    <div class="mb-4">
+      <%= form.label :Categoria, class: 'block text-gray-700 text-sm font-bold mb-2' %>
+      <%= form.select(:category, ['Dores Musculares', 'Anti inflamatório'], { include_blank: true }, class: 'form-select')   %>
+    </div>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
+    <div class="mb-4">
+      <%= form.label :Quantidade, class: 'block text-gray-700 text-sm font-bold mb-2' %>
+      <%= form.select(:quantity, (0..50).to_a, { include_blank: true }, class: 'form-select') %>
+    </div>
 
-  <div class="field">
-  <%= form.label :category %>
-  <%= form.text_field :category %>
-</div>
-
-
-  <div class="actions">
-    <%= form.submit %>
+    <div class="mt-6">
+      <%= form.submit(class: 'bg-minhaCor text-white p-2 rounded-md') %>
+    </div>
   </div>
 <% end %>
