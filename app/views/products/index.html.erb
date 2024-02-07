@@ -7,30 +7,17 @@
 
 </head>
 <body>
+        
+    <div class="sidebar">
+        <h2>Sidebar</h2>
+        <a href="#section1">Seção 1</a>
+        <a href="#section2">Seção 2</a>
+        <a href="#section3">Seção 3</a>
+     </div>
 
-<div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">×</a>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Contact</a>
-</div>
+     
 
-<div class="container">
-    <button class="open-btn" onclick="openNav()">☰ Open Sidebar</button>
-</div>
 
-<script>
-function openNav() {
-  document.getElementById("mySidebar").style.left = "0";
-  document.querySelector('.container').style.marginLeft = '250px';
-}
-
-function closeNav() {
-  document.getElementById("mySidebar").style.left = "-250px";
-  document.querySelector('.container').style.marginLeft= '0';
-}
-</script>
     <section class="content flex justify-center">
     <table class="table table-striped">
         <thead>

@@ -3,46 +3,36 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  overflow-x: hidden; /* Evita barras de rolagem horizontais */
 }
 
 .sidebar {
   height: 100%;
   width: 250px;
   position: fixed;
-  top: 0;
-  left: -250px;
-  background-color: rgb(255,0,40);
-  overflow-x: hidden;
-  transition: 0.5s;
-  padding-top: 60px;
+  background-color: #111;
+  padding-top: 20px;
 }
 
 .sidebar a {
-  padding: 15px 25px;
+  padding: 10px;
   text-decoration: none;
-  font-size: 20px;
-  color: #818181;
+  font-size: 18px;
+  color: white;
   display: block;
   transition: 0.3s;
 }
 
 .sidebar a:hover {
-  color: #f1f1f1;
+  background-color: #ddd;
+  color: black;
 }
 
-.open-btn {
-  font-size: 30px;
-  cursor: pointer;
-  background-color: rgb(255,0,40);
-  color: #818181;
-  border: none;
-}
-
-.container {
-  transition: margin-left 0.5s;
+.content {
+  margin-left: 260px; /* Ajusta a margem esquerda para deixar espaço para a barra lateral */
   padding: 16px;
 }
+
 
 html{
   font-size: 100%;
@@ -62,7 +52,3 @@ html{
   }
 }
 
-.content {
-  margin-left: 260px; /* Ajusta a margem esquerda para deixar espaço para a barra lateral */
-  padding: 16px;
-}
