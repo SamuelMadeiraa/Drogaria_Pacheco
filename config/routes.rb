@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'home#index'
+  get '/inicio', to: 'home#index'
   resources :products
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

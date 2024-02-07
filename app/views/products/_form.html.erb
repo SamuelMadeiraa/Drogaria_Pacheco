@@ -17,7 +17,7 @@
     <div class="mb-4 flex">
       <div class="w-1/2 pr-4">
         <%= form.label :Nome, class: 'block text-gray-700 text-sm font-bold mb-2' %>
-        <%= form.text_field :Nome, class: 'form-input w-full' %>
+        <%= form.text_field :name, class: 'form-input w-full' %>
       </div>
 
       <div class="w-1/2">
@@ -33,7 +33,7 @@
 
     <div class="mb-4">
       <%= form.label :Categoria, class: 'block text-gray-700 text-sm font-bold mb-2' %>
-      <%= form.select(:category, ['Dores Musculares', 'Anti inflamatório'], { include_blank: true }, class: 'form-select')   %>
+      <%= form.select(:category, ['Dores Musculares', 'Anti inflamatório', 'Gripes e Resfriados.'], { include_blank: true }, class: 'form-select')   %>
     </div>
 
     <div class="mb-4">
@@ -41,8 +41,14 @@
       <%= form.select(:quantity, (0..50).to_a, { include_blank: true }, class: 'form-select') %>
     </div>
 
-    <div class="mt-6">
-      <%= form.submit(class: 'bg-minhaCor text-white p-2 rounded-md') %>
+    <div class="my-5">
+      <%= form.label :Imagem %>
+      <%= form.text_field :image, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
     </div>
+
+    <div class="mt-6">
+      <%= form.submit('criar/editar', class: 'bg-minhaCor text-white p-2 rounded-md') %>
+    </div>
+
   </div>
 <% end %>
