@@ -4,7 +4,7 @@
   transition: margin-left 0.5s;
   padding: 16px;
 }
-
+/* tela de produtos */
 html{
   font-size: 100%;
 }
@@ -20,6 +20,106 @@ html{
   td::before{
     content: attr(data-th) ": "; 
     font-weight: bold; 
+  }
+}
+
+/* Home  */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f4f4f4;
+}
+
+.card {
+  max-width: 400px;
+  margin: 20px auto;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-size: 1em;
+  color: #666;
+}
+
+@media (max-width: 600px) {
+  .card {
+    max-width: 100%;
+  }
+}
+.card-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 800px;
+  margin: 20px auto;
+  overflow: auto; /* Alterado para 'auto' para ativar a barra de rolagem quando necessário */
+  padding: 3px;
+}
+
+.card-circulo {
+  width:  100px;
+  height: 100px;
+  margin: 60px 10px; /* Ajustando a margem para dispositivos móveis */
+  background-color: #fff;
+  border-radius: 50%; /* Use 50% para criar um círculo perfeito */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 5px; /* Adicionando espaçamento interno de 5px para cada círculo */
+}
+
+.card-circulo img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.card-content-circulo {
+  padding: 20px;
+}
+
+.card-title-circulo {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card-description-circulo {
+  font-size: 1em;
+  color: #666;
+}
+
+@media (max-width: 600px) {
+  .card-container {
+    overflow-x: auto;
+    overflow-y: hidden; /* Oculta a barra de rolagem vertical em dispositivos móveis */
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    /* Impede que os itens quebrem para a próxima linha */
+  }
+
+  .card-circulo {
+    margin: 60px 5px; /* Ajusta a margem para dispositivos móveis */
+    padding: 10px; /* Ajusta o espaçamento interno para dispositivos móveis */
   }
 }
 
