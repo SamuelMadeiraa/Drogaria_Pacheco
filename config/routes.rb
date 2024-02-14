@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'category/name:string'
+  get 'category/imagecategory:string'
   root 'home#index'
   get '/inicio', to: 'home#index'
   resources :products
