@@ -7,7 +7,8 @@
 
 </head>
 <body>
-        
+    
+    <h1>Produtos em estoque</h1>
 
 
 
@@ -26,7 +27,6 @@
                 <td data-th="Produto"><%= link_to product.name, product %></td>
                 <td data-th="Indicação"><%=  product.description %></td>
                 <td data-th="Preço"><%=  product.price %></td>
-                <td data-th="Categoria"><%=  product.category%></td>
                 <td data-th="Quantidade"><%=  product.quantity%></td>
             </tr>
             <% end %>
