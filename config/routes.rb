@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get 'category/name:string'
-  get 'category/imagecategory:string'
+ 
   root 'home#index'
   get '/inicio', to: 'home#index'
   resources :products
-  resources :categorias
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
