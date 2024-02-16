@@ -1,4 +1,3 @@
 class Product < ApplicationRecord
-    belongs_to :categoria
-    validates :category, presence: true
+    belongs_to :category 
 end
