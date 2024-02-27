@@ -121,4 +121,21 @@ body {
     border-radius: 100%;
     margin-right: 5px;
   }
+  .titulo-produtos{
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 20px;
+
+  }
+  .button-produtos :hover{
+    height: 50px;
+    width:200px;
+    border-radius: 50px;
+    background-color: rgb(255,0,40);
+    color: white;
+    color: ;
+
+  }
+ 
 }

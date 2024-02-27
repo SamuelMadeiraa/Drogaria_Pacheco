@@ -1,9 +1,30 @@
-<h1>Categorias</h1>
+<h1 class="categorias-container">Categorias Cadastradas</h1>
 
-<ul>
-  <% @categories.each do |category| %>
-    <li><%= link_to category.name, category %></li>
-  <% end %>
-</ul>
-
-<%= link_to 'Nova Categoria', new_category_path %>
+<section class="content flex justify-center">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Categoria</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td data-th="Categoria" colspan="2"><h2><%= link_to category.name, category %></h2></td>
+        </tr>
+        
+        <% if category.products.any? %>
+          <% category.products.each do |product| %>
+            <tr>
+              <td data-th="Categoria"><%= link_to product.category.name, product.category %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="2">Nenhum produto associado a esta categoria.</td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</section>

@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <h1>Produtos em estoque</h1>
+    <h1 class="titulo-produtos">Produtos em estoque</h1>
 
 
 
@@ -27,11 +27,14 @@
                 <td data-th="Produto"><%= link_to product.name, product %></td>
                 <td data-th="Indicação"><%=  product.description %></td>
                 <td data-th="Preço"><%=  product.price %></td>
+                <td data-th="Categoria"><%=  product.category[:name]%></td>
                 <td data-th="Quantidade"><%=  product.quantity%></td>
             </tr>
             <% end %>
         </tbody>
     </table>
     </section>
+
+    <button class="button-produtos"><%= link_to "Adicionar Produto", new_product_path %></button>
 </body>
 </html>
