@@ -1,23 +1,23 @@
-<h1>Cupons</h1>
+<h1 class="titulo-cupom">Cupons Disponiveis</h1>
 
-<%= link_to "Novo Cupom", new_cupom_path %>
+<section class="content flex justify-center">
+    <table class="table table-striped">
+        <thead>
+          <th>Codigo do Cupom</th>
+          <th>Validade</th>
+          <th>Percentual de Desconto</th>
+          <th colspan="3"></th>
+        </thead>
+        <tbody>
+          <% @cupons.each do |cupom| %>
+          <tr>
+            <td><%= cupom.nome %></td>
+            <td><%= cupom.validade %></td>
+            <td><%= cupom.percentual_desconto %></td>
+          </tr>
+            <% end %>
+        </tbody>
+    </table>
+</section>
 
-<table>
-  <tr>
-    <th>Nome</th>
-    <th>Validade</th>
-    <th>Percentual de Desconto</th>
-    <th colspan="3"></th>
-  </tr>
-
-  <% @cupons.each do |cupom| %>
-    <tr>
-      <td><%= cupom.nome %></td>
-      <td><%= cupom.validade %></td>
-      <td><%= cupom.percentual_desconto %></td>
-      <td><%= link_to 'Show', cupom %></td>
-      <td><%= link_to 'Edit', edit_cupom_path(cupom) %></td>
-      <td><%= link_to 'Destroy', cupom, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+<%= link_to "Novo Cupom",  new_cupon_path  %>

@@ -15,7 +15,7 @@ class CuponsController < ApplicationController
     def create
       @cupom = Cupom.new(cupom_params)
       if @cupom.save
-        redirect_to @cupom, notice: 'Cupom criado com sucesso.'
+        cupons_url @cupom, notice: 'Cupom criado com sucesso.'
       else
         render :new
       end
@@ -44,7 +44,7 @@ class CuponsController < ApplicationController
     end
   
     def cupom_params
-      params.require(:cupom).permit(:nome, :validade, :percentual_desconto)
+      params.require(:cupom).permit(:nome, :validade, :percentual_desconto, :cupons)
     end
   end
   

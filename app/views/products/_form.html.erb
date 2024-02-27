@@ -1,5 +1,4 @@
 <%= form_with(model: @product, local: true, class: "flex items-center justify-center h-screen") do |form| %>
-  <!-- Your existing code -->
 
   <div class="w-full max-w-md p-6 bg-white rounded-md shadow-md">
     <% if @product.errors.any? %>
@@ -26,11 +25,18 @@
       </div>
     </div>
 
-    <div class="mb-4">
-      <%= form.label :preço, class: 'block text-gray-700 text-sm font-bold mb-2' %>
-      <%= form.text_field :price, class: 'form-input' %>
+    <div class="mb-4 flex">
+      <div class="w-1/2 pr-4">
+        <%= form.label :preço, class: 'block text-gray-700 text-sm font-bold mb-2' %>
+        <%= form.text_field :price, class: 'form-input' %>
+      </div>
+
+      <div class="w-1/2">
+        <%= form.label :Codigo_do_Cupom, class: 'block text-gray-700 text-sm font-bold mb-2' %>
+        <%= form.collection_select :cupomid , Cupom.all, :id, :name, { prompt: "Selecione o Cupom" }, { class: 'form-input w-full' } %>
+      </div>
     </div>
-    
+
     <div class="mb-4">
       <%= form.label :Categoria, class: 'block text-gray-700 text-sm font-bold mb-2' %>
       <%= form.collection_select :category_id, Category.all, :id, :name, { prompt: "Selecione a categoria" }, { class: "form-control" } %>
@@ -41,9 +47,9 @@
       <%= form.select(:quantity, (0..50).to_a, { include_blank: true }, class: 'form-select') %>
     </div>
 
-    <div class="my-5">
-      <%= form.label :Imagem %>
-      <%= form.text_field :image, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <div class="mb-4">
+      <%= form.label :Imagem, class: 'block text-gray-700 text-sm font-bold mb-2' %>
+      <%= form.text_field :image, class: "form-input w-full" %>
     </div>
 
     <div class="mt-6">

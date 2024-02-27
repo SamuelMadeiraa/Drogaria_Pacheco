@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_27_122357) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_27_162409) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,9 +24,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_27_122357) do
   end
 
   create_table "cupoms", force: :cascade do |t|
-    t.string "name"
+    t.string "nome"
     t.date "validade"
-    t.integer "porcetual_de_desconto"
+    t.float "percentual_desconto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,8 +1,7 @@
-<%= form_with(model: @cupom, local: true) do |form| %>
+<%= form_with(model: @cupom, url: @cupom.new_record? ? cupons_path : cupom_path(@cupom), local: true) do |form| %>
     <% if @cupom.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@cupom.errors.count, "error") %> prohibited this cupom from being saved:</h2>
-  
         <ul>
           <% @cupom.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -25,9 +24,11 @@
       <%= form.label :percentual_desconto %>
       <%= form.number_field :percentual_desconto %>
     </div>
-  
+    
     <div class="actions">
       <%= form.submit %>
     </div>
   <% end %>
+  
+
   
