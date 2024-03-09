@@ -44,7 +44,7 @@ class CuponsController < ApplicationController
     end
   
     def cupom_params
-      params.require(:cupom).permit(:nome, :validade, :percentual_desconto, :cupons)
+      params.require(:cupom).permit(:nome, :validade, :percentual_desconto, :cupons, :cupomId)
     end
   end
   

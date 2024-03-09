@@ -1,27 +1,30 @@
-<h1 class="categorias-container">Categorias Cadastradas</h1>
+<h1 class="categorias-titulo">Categorias Cadastradas</h1>
 
 <section class="content flex justify-center">
   <table class="table table-striped">
     <thead>
       <tr>
         <th>Categoria</th>
+        <th>Produto</th>
       </tr>
     </thead>
     <tbody>
       <% @categories.each do |category| %>
-        <tr>
-          <td data-th="Categoria" colspan="2"><h2><%= link_to category.name, category %></h2></td>
-        </tr>
-        
         <% if category.products.any? %>
-          <% category.products.each do |product| %>
+          <% category.products.each_with_index do |product, index| %>
             <tr>
-              <td data-th="Categoria"><%= link_to product.category.name, product.category %></td>
+              <% if index == 0 %>
+                <td data-th="Categoria" rowspan="<%= category.products.size %>">
+                  <h2><%= link_to category.name, category %></h2>
+                </td>
+              <% end %>
+              <td data-th="Produto"><%= link_to product.name, product %></td>
             </tr>
           <% end %>
         <% else %>
           <tr>
-            <td colspan="2">Nenhum produto associado a esta categoria.</td>
+            <td data-th="Categoria"><%= link_to category.name, category %></td>
+            <td data-th="Produto">Nenhum produto associado a esta categoria.</td>
           </tr>
         <% end %>
       <% end %>

@@ -1,4 +1,5 @@
 <%= form_with(model: @product, local: true, class: "flex items-center justify-center h-screen") do |form| %>
+  <!-- Your existing code -->
 
   <div class="w-full max-w-md p-6 bg-white rounded-md shadow-md">
     <% if @product.errors.any? %>
@@ -33,7 +34,7 @@
 
       <div class="w-1/2">
         <%= form.label :Codigo_do_Cupom, class: 'block text-gray-700 text-sm font-bold mb-2' %>
-        <%= form.collection_select :cupomid , Cupom.all, :id, :name, { prompt: "Selecione o Cupom" }, { class: 'form-input w-full' } %>
+        <%= form.collection_select :cupomId, Cupom.all, :id, :nome, { prompt: "Selecione cupom" }, { class: 'form-input w-full' } %>
       </div>
     </div>
 
