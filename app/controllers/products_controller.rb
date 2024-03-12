@@ -4,10 +4,9 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
   end
-
+  
   def show
     @product = Product.find(params[:id])
-   
   end
   
 
@@ -17,7 +16,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-
+    @product.apply_discount_if_price_over_100
     if @product.save
       redirect_to @product, notice: 'Product was successfully created.'
     else
@@ -29,6 +28,7 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to @product, notice: 'Product was successfully updated.'
     else
@@ -40,22 +40,15 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to products_url, notice: 'Product was successfully destroyed.'
   end
-
-  def calcular_desconto
-    # Supondo que você tenha parâmetros, como o valor original e o percentual de desconto,
-    # que foram enviados via requisição HTTP, você pode acessá-los usando params.
-    valor_original = params[:valor_original].to_f
-    percentual_desconto = params[:percentual_desconto].to_f
-
-    # Certifique-se de que o percentual_desconto está na forma de 0 a 100
-    percentual_desconto /= 100.0 if percentual_desconto > 1
-
-    # Calcula o desconto
-    desconto = valor_original * percentual_desconto
-
-    # Retorna o resultado como JSON, por exemplo
-    render json: { valor_com_desconto: valor_original - desconto }
+  
+  def apply_discount
+    @product = Product.find(params[:id])
+    @discounted_price = @product.price * 0.85 # 15% de desconto
+    render :show # ou renderizar a view correspondente
   end
+  
+  
+    
   private
 
   def set_product
@@ -63,9 +56,11 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :category, :image, :quantity, :category_id, :CupomId)
+    params.require(:product).permit(:name, :description, :price, :category, :image, :quantity, :category_id, :CupomId, :nome)
   end
+
 
   
 end
 
+  

@@ -1,17 +1,24 @@
-<div class="card">
-    <section class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-        <img class="w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg object-fit-cover" <%= image_tag @product.image %>
-        <div class="card-content px-6 py-4">
-            <h2><%= @product.name %></h2>
-            <br>
-            <p> <%= @product.description %></p>
-            <br>
-            <p>R$<%= @product.price %></p>
-            <p>Categoria: <%= @product.category[:name] %></p>
-            <p>Cupom de desconto: <%= @product.cupom_id %></p>
-        </div>
-    </section>
-</div>
+<div class="card flex flex-wrap">
+  <section class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+    <%= image_tag @product.image, class: "w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg object-fit-cover" %>
+    <div class="card-content px-6 py-4">
+      <h2><b><%= @product.name %></b></h2>
+      <br>
+      <p><%= @product.description %></p>
+      <br>
+      <p>Produto sem desconto: R$<%= @product.price %></p>
+      <% if @discounted_price.present? %>
+        <p>Produto com desconto: R$<%= @discounted_price %></p>
+      <% end %>
+      <p>Categoria: <%= @product.category.name %></p>
+      <%= form_with(url: apply_discount_product_path(@product), method: :post) do |form| %>
+        <%= form.label :cupomId, 'Código do Cupom', class: 'block text-gray-700 text-sm font-bold mb-2' %>
+        <%= form.collection_select :cupomId, Cupom.all, :id, :nome, { prompt: "Selecione cupom" }, { class: 'form-input w-full' } %>        
+        <%= form.submit 'Aplicar cupom' %>
+      <% end %>
+      
 
-</body>
-</html>
+   
+    </div>
+  </section>
+</div>
