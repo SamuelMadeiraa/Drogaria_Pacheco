@@ -52,10 +52,51 @@
       <%= form.label :Imagem, class: 'block text-gray-700 text-sm font-bold mb-2' %>
       <%= form.text_field :image, class: "form-input w-full" %>
     </div>
+ 
+    <div class="">
+    <%= form.label :Desconto, class: 'block text-gray-700 text-sm font-bold mb-2' %>
 
+
+    <%= form.radio_button :possui_desconto, true, id: 'possui_desconto_sim' %>
+<%= form.label :possui_desconto_sim, "Possui desconto" %>
+<%= form.radio_button :possui_desconto, false, id: 'possui_desconto_nao' %>
+<%= form.label :possui_desconto_nao, "Não possui desconto" %>
+
+<div id="cupom_select" style="display: none;">
+  <%= form_with(url: apply_discount_product_path(@product), method: :post) do |form| %>
+    <%= form.label :cupomId, 'Código do Cupom', class: 'block text-gray-700 text-sm font-bold mb-2' %>
+    <%= form.collection_select :cupomId, Cupom.all, :id, :nome, { prompt: "Selecione cupom" }, { class: 'form-input w-full' } %>        
+    <%= form.submit 'Aplicar cupom' %>
+  <% end %>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var possuiDescontoSim = document.getElementById('possui_desconto_sim');
+    var cupomSelect = document.getElementById('cupom_select');
+
+    possuiDescontoSim.addEventListener('change', function() {
+      if (this.checked) {
+        cupomSelect.style.display = 'block';
+      } else {
+        cupomSelect.style.display = 'none';
+      }
+    });
+  });
+</script>
+      
+
+    </div>  
+
+
+
+
+    
     <div class="mt-6">
       <%= form.submit('criar/editar', class: 'bg-minhaCor text-white p-2 rounded-md') %>
     </div>
-
+  
   </div>
 <% end %>
+
+

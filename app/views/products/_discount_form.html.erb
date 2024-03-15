@@ -1,0 +1,6 @@
+<%= form_with model: @product, url: apply_discount_path(@product), method: :post do |form| %>
+    <%= form.label :discount_code, "Código de desconto:" %>
+    <%= form.text_field :discount_code %>
+    <%= form.submit "Aplicar desconto" %>
+  <% end %>
+  

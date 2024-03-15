@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      redirect_to @product, notice: 'Product was successfully updated.'
+      redirect_to @product, notice: 'Produto atalizado com sucesso.'
     else
       render :edit
     end
@@ -46,8 +46,7 @@ class ProductsController < ApplicationController
     @discounted_price = @product.price * 0.85 # 15% de desconto
     render :show # ou renderizar a view correspondente
   end
-  
-  
+
     
   private
 
@@ -56,7 +55,7 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :category, :image, :quantity, :category_id, :CupomId, :nome)
+    params.require(:product).permit(:name, :description, :price, :category, :image, :quantity, :category_id, :CupomId, :nome, :discountable)
   end
 
 
